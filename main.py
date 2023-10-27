@@ -86,5 +86,5 @@ async def get_report(report_name: str, from_date: str, to_date: str):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="209.97.181.107", port=8000)
 
