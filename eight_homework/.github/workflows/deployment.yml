@@ -1,0 +1,33 @@
+name: Deployment
+
+on:
+  push:
+    branches:
+      - test
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build and deploy
+        run: |
+          scp -r 7_homework(fundamentals_Software_engineering)/eight_homework/tests/E2Etest master_hsumjtqwsc@209.97.181.107:/var/www/my-project
+
+      
+          ssh master_hsumjtqwsc@209.97.181.107
+      
+          pip install -r /var/www/my-project/requirements.txt
+      
+          python /var/www/my-project/main.py
+      
+          exit
+
+
+      - name: E2E Tests
+        run: |
+          cd 7_homework(fundamentals_Software_engineering)/eight_homework/tests/E2Etest
+          python3 E2Etest.py
